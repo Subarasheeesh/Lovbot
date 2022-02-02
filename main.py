@@ -10,9 +10,9 @@ tweets = 0
 searchs = 0
 limitTweets = 50
 limitSearchs = 50
-word = 0
+word = 1
 
-tab = ("marre de la vie","je me sent seul","je suis trop triste","je suis triste")
+tab = ("marre de la vie","envie de mourrir","je suis triste")
 
 def isin(sentence, keyword):
     if(keyword in sentence):
@@ -27,10 +27,10 @@ def search(research, howMany):
     global searchs
     global tweets
     searchs += 1
-    searchResults = api.GetSearch(raw_query="q="+research+"&result_type=recent&count="+howMany)
+    searchResults = api.GetSearch(raw_query="q="+research+"&result_type=recent&count="+howMany) 
     for search in searchResults:
         if(isin(search.text, research)==1):
-            postStatus("@" + search.user.screen_name + "<3", search.id)
+            postStatus("@" + search.user.screen_name + "──────▄▌▐▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▌\n───▄▄██▌█ beep beep\n▄▄▄▌▐██▌█ Love & support delivery\n███████▌█▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▌\n▀(@)▀▀▀▀▀▀▀(@)(@)▀▀▀▀▀▀▀▀(@)▀", search.id)
 
 def start():
     global searchs
@@ -41,7 +41,7 @@ def start():
     stop = False
     while(not stop):
         try:
-            search(tab[word], "100")
+            search(tab[word], "20")
             print(tab[word])
             word = word + 1
         except:
