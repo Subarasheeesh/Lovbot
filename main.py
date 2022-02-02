@@ -8,8 +8,8 @@ api = twitter.Api(consumer_key='jpgTPcFpC8Xq10CSTlCVM5q9x',
 
 tweets = 0
 searchs = 0
-limitTweets = 50
-limitSearchs = 50
+limitTweets = 25
+limitSearchs = 25
 word = 1
 
 tab = ("marre de la vie","envie de mourrir","je suis triste")
@@ -41,7 +41,7 @@ def start():
     stop = False
     while(not stop):
         try:
-            search(tab[word], "20")
+            search(tab[word], "15")
             print(tab[word])
             word = word + 1
         except:
